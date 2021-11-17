@@ -36,3 +36,4 @@ class Furniture:
 		return self.price
 
 	def get_stats(self):
+		pass
