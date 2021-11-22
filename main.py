@@ -6,6 +6,7 @@ from classes.Colors import bcolors
 small_bed = Furniture("Small bed", "bed", 3, 100, 2, 3, 0, 50)
 large_bed = Furniture("Large bed", "bed", 3, 100, 4, 3, 0, 100)
 small_wardrobe = Furniture("Small wardrobe", "wardrobe", 3, 100, 2, 3, 20, 7)
+large_wardrobe = Furniture("Large wardrobe", "wardrobe", 3, 100, 2, 3, 20, 7)
 
 furniture_option = [{"name": small_bed},
 					{"name": large_bed},
