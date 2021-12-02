@@ -31,6 +31,7 @@ class Hotel:
 		i = 1
 		room_name = ""
 		self.rooms.sort(key=lambda x: x["name"].name)
+		print("Your rooms")
 		for room in self.rooms:
 			if room["name"].name == room_name:
 				i += 1
@@ -47,6 +48,7 @@ class Hotel:
 		i = 1
 		item_name = ""
 		self.inventory.sort(key=lambda x: x["name"].name)
+		print("Your inventory")
 		for item in self.inventory:
 			if item["name"].name == item_name:
 				i += 1
