@@ -27,11 +27,14 @@ class Hotel:
 	def get_stars(self):
 		return self.stars
 
+	def get_room_stats(self):
+		return
+
 	def get_rooms(self):
 		i = 1
 		room_name = ""
 		self.rooms.sort(key=lambda x: x["name"].name)
-		print("Your rooms")
+		print(f"{bcolors.BOLD}Your rooms{bcolors.ENDC}")
 		for room in self.rooms:
 			if room["name"].name == room_name:
 				i += 1
@@ -43,12 +46,13 @@ class Hotel:
 				print(bcolors.BOLD + bcolors.OKBLUE + "—" * 50 + bcolors.ENDC)
 				print(f"{i}. {room['name'].name} "
 					  f"Price: {room['name'].price} ")
+		print("\n")
 
 	def get_inventory(self):
 		i = 1
 		item_name = ""
 		self.inventory.sort(key=lambda x: x["name"].name)
-		print("Your inventory")
+		print(f"{bcolors.BOLD}Your inventory{bcolors.ENDC}")
 		for item in self.inventory:
 			if item["name"].name == item_name:
 				i += 1
@@ -60,6 +64,7 @@ class Hotel:
 				print(bcolors.BOLD + bcolors.OKBLUE + "—" * 50 + bcolors.ENDC)
 				print(f"{i}. {item['name'].name} "
 					  f"Price: {item['name'].price} ")
+		print("\n")
 
 
 	def show_buy_options(self):

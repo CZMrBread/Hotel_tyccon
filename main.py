@@ -40,9 +40,9 @@ def shop():
         hotel.show_buy_options()
         choice = input("Choose option: ").lower()
         match choice:
-            case "1"|"go back":
+            case "1" | "go back":
                 shopping = False
-            case "2"|"room":
+            case "2" | "room":
                 hotel.show_buy(room_option)
                 choice = num_input()
                 if choice == "fail":
@@ -58,9 +58,9 @@ def shop():
                 else:
                     hotel.get_rooms()
                     print("\n")
-            case "3"|"furniture":
+            case "3" | "furniture":
                 hotel.show_buy(furniture_option)
-                choice = right_input()
+                choice = num_input()
                 if choice == "fail":
                     continue
 
@@ -78,6 +78,7 @@ def shop():
                 print(f"{bcolors.FAIL}{bcolors.BOLD}Wrong input!{bcolors.ENDC}")
                 continue
 
+
 def room_managment():
     manage = True
     options = ["Go back", "Equip", "Unequip", "Status"]
@@ -88,22 +89,31 @@ def room_managment():
             i += 1
         choice = input("Choose option: ").lower()
         match choice:
-            case "1"|"go back":
+            case "1" | "go back":
                 manage = False
-            case "2"|"equip":
-                for room in rooms:
-                    room["name"].get_stats()
-                choice = right_input()
+            case "2" | "equip":
+                for i, room in enumerate(rooms, 1):
+                    print(f"{i}. {room['name'].get_stats()}")
+                choice = num_input()
                 if choice >= len(rooms):
                     print(bcolors.FAIL + bcolors.BOLD + "Wrong input" + bcolors.ENDC)
                     continue
                 if choice == "fail":
                     continue
-                chosen_room = rooms[choice]
-                hotel.get_inventory()
-            case "3"|"unequip":
+                chosen_room = rooms[choice]["name"]
+                for i, item in enumerate(inventory, 1):
+                    print(f"{i}. {item['name'].get_stats()}")
+                choice = num_input()
+                if choice >= len(inventory):
+                    print(bcolors.FAIL + bcolors.BOLD + "Wrong input" + bcolors.ENDC)
+                    continue
+                if choice == "fail":
+                    continue
+                chosen_item = inventory[choice]
+                chosen_room.equip(chosen_item, inventory)
+            case "3" | "unequip":
                 pass
-            case "4"|"status":
+            case "4" | "status":
                 pass
             case _:
                 print(f"{bcolors.FAIL}{bcolors.BOLD}Wrong input!{bcolors.ENDC}")
@@ -115,49 +125,10 @@ while True:
         print(f"{i}. {action}")
     choice = input("Choose option: ").lower()
     match choice:
-        case "1"|"shop":
+        case "1" | "shop":
             shop()
-        case "2"|"manage rooms":
+        case "2" | "manage rooms":
             room_managment()
-
-
-"""
-running = True
-while running:
-
-	hotel.get_money()
-	hotel.show_buy_options()
-	choice = right_input()
-	if choice == "fail":
-		continue
-
-	if choice == 0:
-		hotel.show_buy(room_option)
-		choice = right_input()
-		if choice == "fail":
-			continue
-
-		if choice >= len(room_option):
-			print(bcolors.FAIL + bcolors.BOLD + "Wrong input" + bcolors.ENDC)
-			continue
-
-		flag = buy(room_option[choice]["name"].name, "room")
-		if flag == "fail":
-			continue
-
-	elif choice == 1:
-		hotel.show_buy(furniture_option)
-		choice = right_input()
-		if choice == "fail":
-			continue
-
-		if choice >= len(furniture_option):
-			print(bcolors.FAIL + bcolors.BOLD + "Wrong input" + bcolors.ENDC)
-			continue
-
-		flag = buy(furniture_option[choice]["name"].name, "furniture")
-		if flag == "fail":
-			continue
-
-	running = False
-"""
+        case _:
+            print(f"{bcolors.FAIL}{bcolors.BOLD}Wrong input!{bcolors.ENDC}")
+            continue

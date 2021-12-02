@@ -36,4 +36,9 @@ class Furniture:
 		return self.price
 
 	def get_stats(self):
-		pass
+		return (f"Name: {self.name} │ "
+				f"Price: {self.price} │ "
+				f"Quality: {self.quality} │ "
+				f"Size: {self.size} │ "
+				f"Comfort: {self.comfort} │ "
+				f"Storage: {self.storage}")
