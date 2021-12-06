@@ -118,17 +118,19 @@ def room_managment():
             case _:
                 print(f"{bcolors.FAIL}{bcolors.BOLD}Wrong input!{bcolors.ENDC}")
 
+def main():
+    while True:
+        actions = ["Shop", "Manage rooms"]
+        for i, action in enumerate(actions, 1):
+            print(f"{i}. {action}")
+        choice = input("Choose option: ").lower()
+        match choice:
+            case "1" | "shop":
+                shop()
+            case "2" | "manage rooms":
+                room_managment()
+            case _:
+                print(f"{bcolors.FAIL}{bcolors.BOLD}Wrong input!{bcolors.ENDC}")
+                continue
 
-while True:
-    actions = ["Shop", "Manage rooms"]
-    for i, action in enumerate(actions, 1):
-        print(f"{i}. {action}")
-    choice = input("Choose option: ").lower()
-    match choice:
-        case "1" | "shop":
-            shop()
-        case "2" | "manage rooms":
-            room_managment()
-        case _:
-            print(f"{bcolors.FAIL}{bcolors.BOLD}Wrong input!{bcolors.ENDC}")
-            continue
+main()
