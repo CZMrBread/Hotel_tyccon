@@ -3,22 +3,15 @@ from classes.Room import Room
 from classes.Furniture import Furniture
 from classes.Colors import bcolors
 
-small_bed = Furniture("Small bed", "bed", 3, 100, 2, 3, 0, 50)
-large_bed = Furniture("Large bed", "bed", 3, 100, 4, 3, 0, 100)
-small_wardrobe = Furniture("Small wardrobe", "wardrobe", 3, 100, 2, 3, 20, 7)
+furniture_option = [{"name": "Small bed", "object": Furniture("Small bed", "bed", 3, 100, 2, 3, 0, 50)},
+                    {"name": "Large bed", "object": Furniture("Large bed", "bed", 3, 100, 4, 3, 0, 100)},
+                    {"name": "Small wardrobe", "object": Furniture("Small wardrobe", "wardrobe", 3, 100, 2, 3, 20, 7)}]
 
-furniture_option = [{"name": small_bed},
-                    {"name": large_bed},
-                    {"name": small_wardrobe}]
+room_option = [{"name": "Small room", "object": Room("Small room", 10, [], 2, False, 2000)},
+               {"name": "Large room", "object": Room("Large room", 20, [], 4, True, 3000)}]
 
-small_room = Room("Small room", 10, [], 2, False, 2000)
-large_room = Room("Large room", 20, [], 4, True, 3000)
-
-room_option = [{"name": small_room},
-               {"name": large_room}]
-
-inventory = [{"name": small_bed}, {"name": small_bed}, {"name": small_bed}, {"name": small_wardrobe}]
-rooms = [{"name": small_room}, {"name": large_room}, {"name": large_room}]
+inventory = []
+rooms = []
 
 hotel = Hotel(rooms, inventory, 10000)
 
