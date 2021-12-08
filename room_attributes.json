@@ -1,5 +1,5 @@
 {
-  "Large room": [
+  "Large room":
     {
       "name": "Large room",
       "size": 20,
@@ -7,9 +7,8 @@
       "windows": 4,
       "balcony": true,
       "price": 3000
-    }
-  ],
-  "Small room": [
+    },
+  "Small room":
     {
     "name": "Large room",
       "size": 20,
@@ -18,5 +17,4 @@
       "balcony": false,
       "price": 2000
     }
-  ]
 }

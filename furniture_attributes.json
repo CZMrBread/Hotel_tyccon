@@ -1,5 +1,5 @@
 {
-  "Small bed": [
+  "Small bed":
     {
       "name": "Small bed",
       "typ": "bed",
@@ -9,9 +9,8 @@
       "comfort": 3,
       "storage": 0,
       "price": 50
-    }
-  ],
-  "Large bed": [
+    },
+  "Large bed":
     {
       "name": "Large bed",
       "typ": "bed",
@@ -21,9 +20,8 @@
       "comfort": 3,
       "storage": 0,
       "price": 100
-    }
-  ],
-  "Small wardrobe": [
+    },
+  "Small wardrobe":
     {
       "name": "Small wardrobe",
       "typ": "wardrobe",
@@ -34,5 +32,4 @@
       "storage": 20,
       "price": 7
     }
-  ]
 }
