@@ -1,0 +1,38 @@
+{
+  "Small bed": [
+    {
+      "name": "Small bed",
+      "typ": "bed",
+      "quality": 3,
+      "cleanliness": 100,
+      "size": 2,
+      "comfort": 3,
+      "storage": 0,
+      "price": 50
+    }
+  ],
+  "Large bed": [
+    {
+      "name": "Large bed",
+      "typ": "bed",
+      "quality": 3,
+      "cleanliness": 100,
+      "size": 4,
+      "comfort": 3,
+      "storage": 0,
+      "price": 100
+    }
+  ],
+  "Small wardrobe": [
+    {
+      "name": "Small wardrobe",
+      "typ": "wardrobe",
+      "quality": 3,
+      "cleanliness": 100,
+      "size": 2,
+      "comfort": 3,
+      "storage": 20,
+      "price": 7
+    }
+  ]
+}

@@ -9,13 +9,16 @@ furniture_option = [{"name": "Small bed", "object": Furniture("Small bed", "bed"
 
 room_option = [{"name": "Small room", "object": Room("Small room", 10, [], 2, False, 2000)},
                {"name": "Large room", "object": Room("Large room", 20, [], 4, True, 3000)}]
-
+large_room = {"name": "Large room", "size": "20", "furniture": [], "windows": 4, "balcony": True, "price": 3000}
 inventory = []
 rooms = []
+rooms.append({"name": large_room["name"],
+              "object": Room(large_room["name"], large_room["size"], large_room["furniture"], large_room["windows"], large_room["balcony"], large_room["price"])})
+rooms.append({"name": large_room["name"],
+              "object": Room(large_room["name"], large_room["size"], large_room["furniture"], large_room["windows"], large_room["balcony"], large_room["price"])})
 
 hotel = Hotel(rooms, inventory, 10000)
-
-
+print(rooms)
 def num_input():
     choice = input("Choose option: ")
     try:

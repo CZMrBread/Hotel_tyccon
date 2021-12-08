@@ -1,0 +1,22 @@
+{
+  "Large room": [
+    {
+      "name": "Large room",
+      "size": 20,
+      "furniture": [],
+      "windows": 4,
+      "balcony": true,
+      "price": 3000
+    }
+  ],
+  "Small room": [
+    {
+    "name": "Large room",
+      "size": 20,
+      "furniture": [],
+      "windows": 4,
+      "balcony": false,
+      "price": 2000
+    }
+  ]
+}
