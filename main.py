@@ -19,6 +19,7 @@ def show_buy(inventory):
     for i, item in enumerate(inventory, 1):
         print(f"{i}. {inventory[item]}")
 
+
 def num_input():
     choice = input("Choose option: ")
     try:
@@ -67,7 +68,7 @@ def shop():
                 continue
 
 
-def room_managment():
+def room_management():
     manage = True
     options = ["Go back", "Equip", "Unequip", "Status"]
     while manage:
@@ -88,6 +89,7 @@ def room_managment():
             case _:
                 print(f"{bcolors.FAIL}{bcolors.BOLD}Wrong input!{bcolors.ENDC}")
 
+
 def main():
     while True:
         actions = ["Shop", "Manage rooms"]
@@ -98,9 +100,10 @@ def main():
             case "1" | "shop":
                 shop()
             case "2" | "manage rooms":
-                room_managment()
+                room_management()
             case _:
                 print(f"{bcolors.FAIL}{bcolors.BOLD}Wrong input!{bcolors.ENDC}")
                 continue
+
 
 main()

@@ -2,6 +2,7 @@ from classes.Colors import bcolors
 from classes.Room import Room
 from classes.Furniture import Furniture
 
+
 class Hotel:
     def __init__(self, rooms, inventory, money):
         self.stars = 1
