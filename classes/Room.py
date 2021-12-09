@@ -22,13 +22,7 @@ class Room:
         return self.furniture
 
     def print_furniture(self):
-        i = 1
-        print(self.name)
-        for item in self.furniture:
-            print("		" + str(i) + ".",
-                  "Name:", item["name"].name,
-                  "Size:", item["name"].size)
-            i += 1
+        pass
 
     def get_windows(self):
         return self.windows
@@ -42,18 +36,4 @@ class Room:
     def get_price(self):
         return self.price
 
-    def equip(self, equipment, inventory):
-        self.space -= equipment["name"].size
-        self.furniture.append(equipment)
-        inventory.remove(equipment)
 
-    def unequip(self, equipment, inventory):
-        self.space += equipment["name"].size
-        inventory.append(equipment)
-        self.furniture.remove(equipment)
-
-    def get_stats(self):
-        return (f"Name: {self.name} │ "
-                f"Price: {self.price} │ "
-                f"Furniture: {[i['name'].name for i in self.furniture]} │ "
-                f"Space: {self.space}/{self.size}")

@@ -10,7 +10,7 @@
     },
   "Small room":
     {
-    "name": "Large room",
+    "name": "Small room",
       "size": 20,
       "furniture": [],
       "windows": 4,
