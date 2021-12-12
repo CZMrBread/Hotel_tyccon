@@ -1,5 +1,4 @@
 from classes.Colors import bcolors
-import json
 from classes.Hotel import Hotel, room_names, room_option, furniture_names, furniture_option
 
 inventory = []
