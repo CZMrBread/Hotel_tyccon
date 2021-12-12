@@ -1,23 +1,11 @@
-from classes.Hotel import Hotel
-from classes.Room import Room
-from classes.Furniture import Furniture
 from classes.Colors import bcolors
 import json
+from classes.Hotel import Hotel, room_names, room_option, furniture_names, furniture_option
 
-room_option = json.loads(open("room_prefab.json").read())
-furniture_option = json.loads(open("furniture_prefab.json").read())
-
-room_names = [room for room in room_option]
-furniture_names = [furniture for furniture in furniture_option]
 inventory = []
 rooms = []
 
 hotel = Hotel(rooms, inventory, 10000)
-
-
-def show_buy(inventory):
-    for i, item in enumerate(inventory, 1):
-        print(f"{i}. {inventory[item]}")
 
 
 def num_input():
@@ -43,7 +31,7 @@ def shop():
             case "1" | "go back":
                 shopping = False
             case "2" | "room":
-                show_buy(room_option)
+                hotel.show_buy(room_option)
                 choice = num_input()
                 if choice == "fail":
                     continue
@@ -51,9 +39,12 @@ def shop():
                     print(f"{bcolors.BOLD}{bcolors.FAIL}Input out of range!{bcolors.ENDC}")
                     continue
                 chosen_room = room_names[choice]
-                hotel.buy(chosen_room, room_option, True)
+                hotel.buy(chosen_room, room_option)
+                if hotel.buy == "fail":
+                    continue
+                print([room.name for room in rooms])
             case "3" | "furniture":
-                show_buy(furniture_option)
+                hotel.show_buy(furniture_option)
                 choice = num_input()
                 if choice == "fail":
                     continue
@@ -61,8 +52,10 @@ def shop():
                     print(f"{bcolors.BOLD}{bcolors.FAIL}Input out of range!{bcolors.ENDC}")
                     continue
                 chosen_furniture = furniture_names[choice]
-                hotel.buy(chosen_furniture, furniture_option, False)
-                print(inventory)
+                hotel.buy(chosen_furniture, furniture_option)
+                if hotel.buy == "fail":
+                    continue
+                print([item.name for item in inventory])
             case _:
                 print(f"{bcolors.FAIL}{bcolors.BOLD}Wrong input!{bcolors.ENDC}")
                 continue
