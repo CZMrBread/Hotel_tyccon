@@ -49,7 +49,7 @@ class Hotel:
     def buy(self, item, prefab):
         if int(prefab[item]["price"]) > self.money:
             print(f"{bcolors.BOLD}{bcolors.FAIL}Not enough money{bcolors.ENDC}")
-            return "fail"
+            return False
         self.money -= int(prefab[item]["price"])
         if prefab[item]["name"] in room_names:
             self.rooms.append(Room(prefab[item]["name"],
@@ -67,3 +67,4 @@ class Hotel:
                                             prefab[item]["comfort"],
                                             prefab[item]["storage"],
                                             prefab[item]["price"]))
+        return True

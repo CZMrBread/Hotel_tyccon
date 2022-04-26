@@ -13,11 +13,11 @@ def num_input():
         choice = int(choice) - 1
         if choice < 0:
             print(f"{bcolors.FAIL}{bcolors.BOLD}Wrong input!{bcolors.ENDC}")
-            return "fail"
+            return False
         return choice
     except ValueError:
         print(f"{bcolors.FAIL}{bcolors.BOLD}Wrong input!{bcolors.ENDC}")
-        return "fail"
+        return False
 
 
 def shop():
@@ -32,27 +32,27 @@ def shop():
             case "2" | "room":
                 hotel.show_buy(room_option)
                 choice = num_input()
-                if choice == "fail":
+                if choice is False:
                     continue
                 elif choice >= len(room_names):
                     print(f"{bcolors.BOLD}{bcolors.FAIL}Input out of range!{bcolors.ENDC}")
                     continue
                 chosen_room = room_names[choice]
-                hotel.buy(chosen_room, room_option)
-                if hotel.buy == "fail":
+                flag = hotel.buy(chosen_room, room_option)
+                if not flag:
                     continue
                 print([room.name for room in rooms])
             case "3" | "furniture":
                 hotel.show_buy(furniture_option)
                 choice = num_input()
-                if choice == "fail":
+                if choice is False:
                     continue
                 elif choice >= len(furniture_names):
                     print(f"{bcolors.BOLD}{bcolors.FAIL}Input out of range!{bcolors.ENDC}")
                     continue
                 chosen_furniture = furniture_names[choice]
-                hotel.buy(chosen_furniture, furniture_option)
-                if hotel.buy == "fail":
+                flag = hotel.buy(chosen_furniture, furniture_option)
+                if not flag:
                     continue
                 print([item.name for item in inventory])
             case _:
@@ -64,10 +64,8 @@ def room_management():
     manage = True
     options = ["Go back", "Equip", "Unequip", "Status"]
     while manage:
-        i = 1
-        for option in options:
+        for i, option in enumerate(options, 1):
             print(f"{i}. {option}")
-            i += 1
         choice = input("Choose option: ").lower()
         match choice:
             case "1" | "go back":
